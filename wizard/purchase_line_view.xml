@@ -1,0 +1,33 @@
+<openerp>
+    <data>
+         <act_window name="License Plates Lines"
+            res_model="purchase.order.lot.view"
+            src_model="purchase.order.line"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_view_line_lots"/>
+
+        <record id="wizard_view_purchase_line_lots" model="ir.ui.view">
+            <field name="name">PO License Plate Line Lot Form</field>
+            <field name="model">purchase.order.lot.view</field>
+            <field name="arch" type="xml">
+                <form>
+		    <group>
+		        <field name="product" readonly="1"/>
+		    </group>
+		    <group string="Details">
+			<field name="lines" nolabel="1" widget="one2many_list" readonly="1" >
+			    <tree>
+			        <field name="product" />
+			        <field name="quantity" />
+			        <field name="lot" />
+			        <field name="state" />
+			    </tree>
+			</field>
+		    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
